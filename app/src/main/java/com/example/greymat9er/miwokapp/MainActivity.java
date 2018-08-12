@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Find the view that shows numbers category
+        //Find the view that shows Phrases category
         TextView phrases = (TextView) findViewById(R.id.PhrasesView);
 
         //set a click listener to that View
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Find the view that shows numbers category
+        //Find the view that shows Family category
         TextView family = (TextView) findViewById(R.id.FamilyView);
 
         //set a click listener to that View
