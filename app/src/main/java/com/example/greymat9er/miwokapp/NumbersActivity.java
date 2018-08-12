@@ -41,6 +41,7 @@ public class NumbersActivity extends AppCompatActivity {
         for (int i=0; i<englishWords.size(); i++){
             TextView wordView = new TextView(this);
             wordView.setText(englishWords.get(i));
+            wordView.setPadding(0,0,0,80);
             rootView.addView(wordView);
         }
 

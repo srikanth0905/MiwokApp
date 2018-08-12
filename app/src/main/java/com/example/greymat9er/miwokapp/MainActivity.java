@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             //This method will execute when numbers View is clicked
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Phrases.class);
+                Intent i = new Intent( MainActivity.this, Phrases.class);
                 startActivity(i);
             }
         });
