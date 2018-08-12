@@ -12,28 +12,24 @@
         android:id="@+id/NumbersView"
         style="@style/CategoryStyle"
         android:text="@string/Numbers"
-        android:background="@color/number"
-        android:onClick="numbersList" />
+        android:background="@color/number" />
 
     <TextView
         android:id="@+id/ColorsView"
         style="@style/CategoryStyle"
         android:text="@string/Colors"
-        android:background="@color/color"
-        android:onClick="colorsList" />
+        android:background="@color/color" />
 
     <TextView
         android:id="@+id/PhrasesView"
         style="@style/CategoryStyle"
         android:text="@string/Phrases"
-        android:background="@color/phrase"
-        android:onClick="phrasesList" />
+        android:background="@color/phrase" />
 
     <TextView
         android:id="@+id/FamilyView"
         style="@style/CategoryStyle"
         android:text="@string/Family"
-        android:background="@color/family"
-        android:onClick="familyList" />
+        android:background="@color/family" />
 
 </LinearLayout>
