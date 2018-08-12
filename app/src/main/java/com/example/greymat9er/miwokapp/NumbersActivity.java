@@ -3,6 +3,8 @@ package com.example.greymat9er.miwokapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,13 +30,11 @@ public class NumbersActivity extends AppCompatActivity {
         englishWords.add("nine");
         englishWords.add("ten");
 
-        //log messages to check if the worsd are getting added in ArrayList
-        logMessage(englishWords);
+        LinearLayout rootView = findViewById(R.id.rootView);
+        TextView wordView = new TextView(this);
+        wordView.setText(englishWords.get(0));
+        rootView.addView(wordView);
+
     }
 
-    private void logMessage(ArrayList word) {
-        for (int i = 0; i < word.size(); i++) {
-            Log.v("Numbers Activity", "Word at index " + i + " " + word.get(i));
-        }
-    }
 }
