@@ -3,36 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="16dp">
+    android:minHeight="@dimen/list_item_height"
+    android:orientation="horizontal">
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
+        android:contentDescription="@string/Image"
+        tools:src="@drawable/finger" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/Image"
-            android:paddingEnd="16dp" />
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
 
         <TextView
             android:id="@+id/miwokTranslation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/image"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
             tools:text="Miwok Translation" />
 
         <TextView
             android:id="@+id/defaultTranslation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/miwokTranslation"
-            android:layout_toEndOf="@id/image"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:textColor="@android:color/white"
             tools:text="English Translation" />
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

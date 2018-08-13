@@ -1,8 +1,10 @@
 package com.example.greymat9er.miwokapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +22,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
     * @param context: is the current context file. Used to inflate layout file.
     * @param words:   is list of english and Miwok translation
     * */
-    public WordAdapter(Activity context, ArrayList<Word> words){
+
+    private int mcolorReferenceId;
+
+    public WordAdapter(Activity context, ArrayList<Word> words, int colorResourceId) {
         super(context, 0, words);
+        mcolorReferenceId = colorResourceId;
     }
 
     /*
@@ -68,6 +74,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         } else
             //set the image visibility to GONE, so that it doesnt take up any space
             imageView.setVisibility(View.GONE);
+
+        //Set theme color for the list item
+        View textcontainer = listItemView.findViewById(R.id.text_container);
+        //Find the color that resource Id maps to
+        int color = ContextCompat.getColor(getContext(), mcolorReferenceId);
+        //set the background color of the text container View
+        textcontainer.setBackgroundColor(color);
 
         return listItemView;
     }
