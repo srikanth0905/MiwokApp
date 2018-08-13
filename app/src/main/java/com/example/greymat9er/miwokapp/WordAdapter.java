@@ -45,13 +45,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID numbersEng
-        TextView engTextView = listItemView.findViewById(R.id.numbersEng);
+        TextView engTextView = listItemView.findViewById(R.id.defaultTranslation);
         // Get the default translation from the current Word object and
         // set this text on the name TextView
         engTextView.setText(currentWord.getDefaultTranslation());
 
         // Find the TextView in the list_item.xml layout with the ID numbersMiwok
-        TextView miwokTextView = listItemView.findViewById(R.id.numbersMiwok);
+        TextView miwokTextView = listItemView.findViewById(R.id.miwokTranslation);
         // Get the miwok translation from the current Word object and
         // set this text on the name TextView
         miwokTextView.setText(currentWord.getMiwokTranslation());
