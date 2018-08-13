@@ -11,7 +11,7 @@ public class Phrases extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
+        setContentView(R.layout.word_list);
 
         //Creating ArrayList for Colors
         ArrayList<Word> words = new ArrayList<>();
@@ -33,3 +33,4 @@ public class Phrases extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 }
+
