@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,21 +19,31 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //Creating ArrayList for Numbers
-        ArrayList<String> englishWords = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
 
         //adding the words to ArrayList
-        englishWords.add("one");
-        englishWords.add("two");
-        englishWords.add("three");
-        englishWords.add("four");
-        englishWords.add("five");
-        englishWords.add("six");
-        englishWords.add("seven");
-        englishWords.add("eight");
-        englishWords.add("nine");
-        englishWords.add("ten");
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
 
-        LinearLayout rootView = findViewById(R.id.rootView);
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
+        //LinearLayout rootView = findViewById(R.id.rootView);
 
         /*
         TextView wordView = new TextView(this);
@@ -40,9 +51,9 @@ public class NumbersActivity extends AppCompatActivity {
         rootView.addView(wordView);
         */
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, englishWords);
+        WordAdapter adapter = new WordAdapter(this, words);
         ListView listView = findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
 
     }
 
