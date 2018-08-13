@@ -16,9 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/Image"
-            android:paddingEnd="16dp"
-            android:src="@drawable/finger"
-            tools:src="@drawable/finger" />
+            android:paddingEnd="16dp" />
 
         <TextView
             android:id="@+id/miwokTranslation"

@@ -57,8 +57,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // set this text on the name TextView
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
+        //Find the ImageView in the list_item.xml with ID image
         ImageView imageView = listItemView.findViewById(R.id.image);
-        imageView.setImageResource(currentWord.getImageResourceId());
+
+        //check if there is any image present for current word
+        if (currentWord.hasImage()) {
+            //set the ImageView to the image resource specified in the current word
+            imageView.setImageResource(currentWord.getImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
+        } else
+            //set the image visibility to GONE, so that it doesnt take up any space
+            imageView.setVisibility(View.GONE);
 
         return listItemView;
     }
