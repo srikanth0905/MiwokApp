@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
         android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:paddingStart="16dp">
 
         <TextView
             android:id="@+id/miwokTranslation"

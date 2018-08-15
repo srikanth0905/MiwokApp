@@ -1,5 +1,7 @@
 package com.example.greymat9er.miwokapp;
 
+import android.media.MediaPlayer;
+
 public class Word {
 
     //Default(English) translation for the word
@@ -9,18 +11,24 @@ public class Word {
     private String mMiwokTranslation;
 
     private static final int NO_IMAGE_REFERENCE = -1;
+
     //Resource id for images
     private int mImageResourceId = NO_IMAGE_REFERENCE;
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageResource) {
+    //Resource id for audio files
+    private int mAudioResource;
+
+    Word(String defaultTranslation, String miwokTranslation, int imageResource, int audioResource) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResource;
+        mAudioResource = audioResource;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation) {
+    Word(String defaultTranslation, String miwokTranslation, int audioResource) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResource = audioResource;
     }
 
     public String getDefaultTranslation() {
@@ -37,5 +45,9 @@ public class Word {
 
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_REFERENCE;
+    }
+
+    public int getmAudioResource() {
+        return mAudioResource;
     }
 }

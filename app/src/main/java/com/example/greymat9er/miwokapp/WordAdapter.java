@@ -1,7 +1,7 @@
 package com.example.greymat9er.miwokapp;
 
 import android.app.Activity;
-import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -17,16 +17,18 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private static final String LOG_TAG = WordAdapter.class.getSimpleName();
+    private Activity activityContext;
 
     /*
     * @param context: is the current context file. Used to inflate layout file.
     * @param words:   is list of english and Miwok translation
-    * */
+     */
 
     private int mcolorReferenceId;
 
-    public WordAdapter(Activity context, ArrayList<Word> words, int colorResourceId) {
+    WordAdapter(Activity context, ArrayList<Word> words, int colorResourceId) {
         super(context, 0, words);
+        activityContext = context;
         mcolorReferenceId = colorResourceId;
     }
 
@@ -48,20 +50,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
             listItemView = LayoutInflater.from(getContext()).
                     inflate(R.layout.list_item,parent,false);
 
+
         // Get the {@link Word} object located at this position in the list
         Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID numbersEng
         TextView engTextView = listItemView.findViewById(R.id.defaultTranslation);
         // Get the default translation from the current Word object and
-        // set this text on the name TextView
+        // set this text on the name engTextView
         engTextView.setText(currentWord.getDefaultTranslation());
 
         // Find the TextView in the list_item.xml layout with the ID numbersMiwok
         TextView miwokTextView = listItemView.findViewById(R.id.miwokTranslation);
         // Get the miwok translation from the current Word object and
-        // set this text on the name TextView
+        // set this text on the name miwokTextView
         miwokTextView.setText(currentWord.getMiwokTranslation());
+
 
         //Find the ImageView in the list_item.xml with ID image
         ImageView imageView = listItemView.findViewById(R.id.image);
@@ -75,6 +79,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
             //set the image visibility to GONE, so that it doesnt take up any space
             imageView.setVisibility(View.GONE);
 
+
+        //Get the audio reference file
+        final int audio = currentWord.getmAudioResource();
+
+
+
         //Set theme color for the list item
         View textcontainer = listItemView.findViewById(R.id.text_container);
         //Find the color that resource Id maps to
@@ -82,6 +92,23 @@ public class WordAdapter extends ArrayAdapter<Word> {
         //set the background color of the text container View
         textcontainer.setBackgroundColor(color);
 
+
+        //Get id of LinearLayout in list item to check for onClickListeners
+        textcontainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playAudio(audio);
+            }
+        });
+        //Media playback
+        //Create a MediaPlayer object
+
+
         return listItemView;
+    }
+
+    private void playAudio(int audioResource) {
+        MediaPlayer audio = MediaPlayer.create(activityContext, audioResource);
+        audio.start();
     }
 }
