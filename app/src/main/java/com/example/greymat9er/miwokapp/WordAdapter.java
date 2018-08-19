@@ -18,7 +18,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     private static final String LOG_TAG = WordAdapter.class.getSimpleName();
     private Activity activityContext;
-
     /*
     * @param context: is the current context file. Used to inflate layout file.
     * @param words:   is list of english and Miwok translation
@@ -52,7 +51,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
 
         // Get the {@link Word} object located at this position in the list
-        Word currentWord = getItem(position);
+        final Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID numbersEng
         TextView engTextView = listItemView.findViewById(R.id.defaultTranslation);
@@ -94,21 +93,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
 
         //Get id of LinearLayout in list item to check for onClickListeners
-        textcontainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playAudio(audio);
-            }
-        });
         //Media playback
         //Create a MediaPlayer object
 
 
         return listItemView;
-    }
-
-    private void playAudio(int audioResource) {
-        MediaPlayer audio = MediaPlayer.create(activityContext, audioResource);
-        audio.start();
     }
 }
